@@ -1,0 +1,15 @@
+begin:
+	age = 30
+	tall = 170
+	if( (age + tall) == 200 ) then goto midle else goto begin
+midle:
+	sum = age + tall
+	a = a + 1
+	Aontime = a.ontime
+	Aofftime = a.offtime
+	RoundPerSecond = a / Aontime
+	goto midle
+end:
+
+test:
+	if( temp > 25 ) then output1 = 1 else output1 = 0
