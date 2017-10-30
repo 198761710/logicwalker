@@ -6,7 +6,6 @@
 #include "context.h"
 #include "expression.h"
 
-#define fabs(x) (x)
 
 Expression::~Expression(void)
 {

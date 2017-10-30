@@ -11,15 +11,15 @@ void Cache::SetToken(Token& token)
 }
 void Cache::ShowToken(void)
 {
-	printf("___________________________________________________________\n");
-	printf("|********************* %14s ********************|\n", cachename.data());
-	printf("|---------------------------------------------------------|\n");
-	printf("|     name     |    value    | runtime | ontime | offtime |\n");
-	printf("|---------------------------------------------------------|\n");
+	printf("_______________________________________________________________\n");
+	printf("|*********************** %14s **********************|\n", cachename.data());
+	printf("|-------------------------------------------------------------|\n");
+	printf("|     name     |      value      | runtime | ontime | offtime |\n");
+	printf("|-------------------------------------------------------------|\n");
 	for(Iterator i = variablemap.begin(); i != variablemap.end(); i++)
 	{
 		printf("| %-12s | ", i->first.data());
-		printf(" %-10.1f |", i->second.GetValue());
+		printf(" %-14.1f |", i->second.GetValue());
 		printf(" %-7d |", (int)i->second.Runtime());
 		printf(" %-7d |", (int)i->second.OnTime());
 		printf(" %-6d |\n", (int)i->second.OffTime());

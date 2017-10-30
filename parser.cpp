@@ -70,12 +70,15 @@
 
 #include <stdio.h>
 #include "logicwalker.h"
+
 extern "C" int yylex(void);
-extern "C" void yyerror(const char*);
+extern "C" void yyerror(const char *s);
+extern "C" void* yystring(const char *s);
+
 
 
 /* Line 268 of yacc.c  */
-#line 79 "parser.cpp"
+#line 82 "parser.cpp"
 
 /* Enabling traces.  */
 #ifndef YYDEBUG
@@ -150,7 +153,7 @@ typedef union YYSTYPE
 {
 
 /* Line 293 of yacc.c  */
-#line 8 "logicwalker.y"
+#line 11 "logicwalker.y"
 
 	struct
 	{
@@ -161,7 +164,7 @@ typedef union YYSTYPE
 
 
 /* Line 293 of yacc.c  */
-#line 165 "parser.cpp"
+#line 168 "parser.cpp"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
@@ -173,7 +176,7 @@ typedef union YYSTYPE
 
 
 /* Line 343 of yacc.c  */
-#line 177 "parser.cpp"
+#line 180 "parser.cpp"
 
 #ifdef short
 # undef short
@@ -479,11 +482,11 @@ static const yytype_int8 yyrhs[] =
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    38,    38,    40,    43,    45,    47,    50,    52,    55,
-      58,    61,    64,    66,    69,    71,    74,    77,    80,    82,
-      84,    86,    88,    90,    92,    94,    96,    98,   100,   102,
-     104,   106,   108,   110,   112,   114,   116,   118,   120,   122,
-     124,   126,   128,   130,   132,   134
+       0,    41,    41,    43,    46,    48,    50,    53,    55,    58,
+      61,    64,    67,    69,    72,    74,    77,    80,    83,    85,
+      87,    89,    91,    93,    95,    97,    99,   101,   103,   105,
+     107,   109,   111,   113,   115,   117,   119,   121,   123,   125,
+     127,   129,   131,   133,   135,   137
 };
 #endif
 
@@ -1472,266 +1475,266 @@ yyreduce:
         case 2:
 
 /* Line 1806 of yacc.c  */
-#line 38 "logicwalker.y"
+#line 41 "logicwalker.y"
     {LogicWalker::AddList();}
     break;
 
   case 3:
 
 /* Line 1806 of yacc.c  */
-#line 40 "logicwalker.y"
+#line 43 "logicwalker.y"
     {LogicWalker::AddList();}
     break;
 
   case 9:
 
 /* Line 1806 of yacc.c  */
-#line 55 "logicwalker.y"
+#line 58 "logicwalker.y"
     {NODE(IF, "if");}
     break;
 
   case 10:
 
 /* Line 1806 of yacc.c  */
-#line 58 "logicwalker.y"
+#line 61 "logicwalker.y"
     {NODE(THEN, "then");}
     break;
 
   case 11:
 
 /* Line 1806 of yacc.c  */
-#line 61 "logicwalker.y"
+#line 64 "logicwalker.y"
     {NODE(ELSE, "else");}
     break;
 
   case 14:
 
 /* Line 1806 of yacc.c  */
-#line 69 "logicwalker.y"
+#line 72 "logicwalker.y"
     {NODE(ID, (yyvsp[(1) - (3)].t)); NODE(SET,"=");}
     break;
 
   case 15:
 
 /* Line 1806 of yacc.c  */
-#line 71 "logicwalker.y"
+#line 74 "logicwalker.y"
     {NODE(LC, (yyvsp[(1) - (3)].t)); NODE(SET,"=");}
     break;
 
   case 16:
 
 /* Line 1806 of yacc.c  */
-#line 74 "logicwalker.y"
+#line 77 "logicwalker.y"
     {NODE(LABEL,string((yyvsp[(2) - (2)].t))+":"); NODE(GOTO,"goto");}
     break;
 
   case 17:
 
 /* Line 1806 of yacc.c  */
-#line 77 "logicwalker.y"
+#line 80 "logicwalker.y"
     {NODE(LABEL, (yyvsp[(1) - (1)].t));}
     break;
 
   case 18:
 
 /* Line 1806 of yacc.c  */
-#line 80 "logicwalker.y"
+#line 83 "logicwalker.y"
     {NODE(LC, (yyvsp[(1) - (1)].t));}
     break;
 
   case 19:
 
 /* Line 1806 of yacc.c  */
-#line 82 "logicwalker.y"
+#line 85 "logicwalker.y"
     {NODE(LCO, (yyvsp[(1) - (1)].t));}
     break;
 
   case 20:
 
 /* Line 1806 of yacc.c  */
-#line 84 "logicwalker.y"
+#line 87 "logicwalker.y"
     {NODE(LCF, (yyvsp[(1) - (1)].t));}
     break;
 
   case 21:
 
 /* Line 1806 of yacc.c  */
-#line 86 "logicwalker.y"
+#line 89 "logicwalker.y"
     {NODE(ID, (yyvsp[(1) - (1)].t));}
     break;
 
   case 22:
 
 /* Line 1806 of yacc.c  */
-#line 88 "logicwalker.y"
+#line 91 "logicwalker.y"
     {NODE(IDR, (yyvsp[(1) - (1)].t));}
     break;
 
   case 23:
 
 /* Line 1806 of yacc.c  */
-#line 90 "logicwalker.y"
+#line 93 "logicwalker.y"
     {NODE(IDO, (yyvsp[(1) - (1)].t));}
     break;
 
   case 24:
 
 /* Line 1806 of yacc.c  */
-#line 92 "logicwalker.y"
+#line 95 "logicwalker.y"
     {NODE(IDF, (yyvsp[(1) - (1)].t));}
     break;
 
   case 25:
 
 /* Line 1806 of yacc.c  */
-#line 94 "logicwalker.y"
+#line 97 "logicwalker.y"
     {NODE(IDV, (yyvsp[(1) - (1)].t));}
     break;
 
   case 26:
 
 /* Line 1806 of yacc.c  */
-#line 96 "logicwalker.y"
+#line 99 "logicwalker.y"
     {NODE(NUM, (yyvsp[(1) - (1)].t));}
     break;
 
   case 27:
 
 /* Line 1806 of yacc.c  */
-#line 98 "logicwalker.y"
+#line 101 "logicwalker.y"
     {NODE(HEX, (yyvsp[(1) - (1)].t));}
     break;
 
   case 28:
 
 /* Line 1806 of yacc.c  */
-#line 100 "logicwalker.y"
+#line 103 "logicwalker.y"
     {NODE(DATE, (yyvsp[(1) - (1)].t));}
     break;
 
   case 29:
 
 /* Line 1806 of yacc.c  */
-#line 102 "logicwalker.y"
+#line 105 "logicwalker.y"
     {NODE(TIME, (yyvsp[(1) - (1)].t));}
     break;
 
   case 30:
 
 /* Line 1806 of yacc.c  */
-#line 104 "logicwalker.y"
+#line 107 "logicwalker.y"
     {NODE(DATETIME, (yyvsp[(1) - (1)].t));}
     break;
 
   case 31:
 
 /* Line 1806 of yacc.c  */
-#line 106 "logicwalker.y"
+#line 109 "logicwalker.y"
     {}
     break;
 
   case 32:
 
 /* Line 1806 of yacc.c  */
-#line 108 "logicwalker.y"
+#line 111 "logicwalker.y"
     {NODE(NOT, "!");}
     break;
 
   case 33:
 
 /* Line 1806 of yacc.c  */
-#line 110 "logicwalker.y"
+#line 113 "logicwalker.y"
     {NODE(AND, "&&");}
     break;
 
   case 34:
 
 /* Line 1806 of yacc.c  */
-#line 112 "logicwalker.y"
+#line 115 "logicwalker.y"
     {NODE(OR, "||");}
     break;
 
   case 35:
 
 /* Line 1806 of yacc.c  */
-#line 114 "logicwalker.y"
+#line 117 "logicwalker.y"
     {NODE(EQ, "==");}
     break;
 
   case 36:
 
 /* Line 1806 of yacc.c  */
-#line 116 "logicwalker.y"
+#line 119 "logicwalker.y"
     {NODE(NE, "!=");}
     break;
 
   case 37:
 
 /* Line 1806 of yacc.c  */
-#line 118 "logicwalker.y"
+#line 121 "logicwalker.y"
     {NODE(GE, ">=");}
     break;
 
   case 38:
 
 /* Line 1806 of yacc.c  */
-#line 120 "logicwalker.y"
+#line 123 "logicwalker.y"
     {NODE(LE, "<=");}
     break;
 
   case 39:
 
 /* Line 1806 of yacc.c  */
-#line 122 "logicwalker.y"
+#line 125 "logicwalker.y"
     {NODE(GT, ">");}
     break;
 
   case 40:
 
 /* Line 1806 of yacc.c  */
-#line 124 "logicwalker.y"
+#line 127 "logicwalker.y"
     {NODE(LT, "<");}
     break;
 
   case 41:
 
 /* Line 1806 of yacc.c  */
-#line 126 "logicwalker.y"
+#line 129 "logicwalker.y"
     {NODE(ADD, "+");}
     break;
 
   case 42:
 
 /* Line 1806 of yacc.c  */
-#line 128 "logicwalker.y"
+#line 131 "logicwalker.y"
     {NODE(MIN, "-");}
     break;
 
   case 43:
 
 /* Line 1806 of yacc.c  */
-#line 130 "logicwalker.y"
+#line 133 "logicwalker.y"
     {NODE(MUL, "*");}
     break;
 
   case 44:
 
 /* Line 1806 of yacc.c  */
-#line 132 "logicwalker.y"
+#line 135 "logicwalker.y"
     {NODE(DIV, "/");}
     break;
 
   case 45:
 
 /* Line 1806 of yacc.c  */
-#line 134 "logicwalker.y"
+#line 137 "logicwalker.y"
     {NODE(MOD, "%");}
     break;
 
 
 
 /* Line 1806 of yacc.c  */
-#line 1735 "parser.cpp"
+#line 1738 "parser.cpp"
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -1962,18 +1965,42 @@ yyreturn:
 
 
 /* Line 2067 of yacc.c  */
-#line 136 "logicwalker.y"
+#line 139 "logicwalker.y"
 
 
 void yyerror(const char *p)
 {
 	printf("error:%s\n", p?p:"null");
 }
+void readfile(const string& file, string& s)
+{
+	char *p = 0;
+	char buf[1024] = {0};
+	FILE *f = fopen(file.data(), "r");
+	while(p = fgets(buf, sizeof(buf), f))
+	{
+		s += p;
+	}
+}
+void parsefile(const string& file)
+{
+	string s = "a = a + 1\n";
+
+	readfile(file, s);
+	yystring(s.data());
+	yyparse();
+}
 
 #ifdef TEST_PARSER
 int main(int argc, char **argv)
 {
-	yyparse();
+	string file = "example.logic";
+
+	if( argc > 1 )
+	{
+		file = argv[1];
+	}
+	parsefile(file);
 	LogicWalker::Execute();
 	return 0;
 }

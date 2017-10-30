@@ -1,8 +1,11 @@
 %{
 #include <stdio.h>
 #include "logicwalker.h"
+
 extern "C" int yylex(void);
-extern "C" void yyerror(const char*);
+extern "C" void yyerror(const char *s);
+extern "C" void* yystring(const char *s);
+
 %}
 %union
 {
@@ -139,11 +142,35 @@ void yyerror(const char *p)
 {
 	printf("error:%s\n", p?p:"null");
 }
+void readfile(const string& file, string& s)
+{
+	char *p = 0;
+	char buf[1024] = {0};
+	FILE *f = fopen(file.data(), "r");
+	while(p = fgets(buf, sizeof(buf), f))
+	{
+		s += p;
+	}
+}
+void parsefile(const string& file)
+{
+	string s = "a = a + 1\n";
+
+	readfile(file, s);
+	yystring(s.data());
+	yyparse();
+}
 
 #ifdef TEST_PARSER
 int main(int argc, char **argv)
 {
-	yyparse();
+	string file = "example.logic";
+
+	if( argc > 1 )
+	{
+		file = argv[1];
+	}
+	parsefile(file);
 	LogicWalker::Execute();
 	return 0;
 }

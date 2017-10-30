@@ -12,7 +12,7 @@ FanStop:
 Normal:
 	a = a + 1
 	A = A + 2
-	b = a / a.ontime
+	rps = a / a.ontime
 	c = 0.001 == 0.0009
 	fan_ontime = fan.ontime
 	fan_offtime = fan.offtime

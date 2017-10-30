@@ -607,10 +607,11 @@ char *yytext;
 #include <cstring>
 #include "parser.h"
 extern char *yytext;
-extern	"C" int yylex(void);
-extern	"C" int yywrap(void);
+extern "C" int yylex(void);
+extern "C" int yywrap(void);
+extern "C" void* yystring(const char *s);
 #define CopyText() strcpy(yylval.t, yytext)
-#line 614 "lexer.cpp"
+#line 615 "lexer.cpp"
 
 #define INITIAL 0
 
@@ -797,10 +798,10 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
     
-#line 33 "logicwalker.l"
+#line 34 "logicwalker.l"
 
 
-#line 804 "lexer.cpp"
+#line 805 "lexer.cpp"
 
 	if ( !(yy_init) )
 		{
@@ -885,226 +886,226 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 35 "logicwalker.l"
+#line 36 "logicwalker.l"
 {CopyText(); return IF;}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 36 "logicwalker.l"
+#line 37 "logicwalker.l"
 {CopyText(); return THEN;}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 37 "logicwalker.l"
+#line 38 "logicwalker.l"
 {CopyText(); return ELSE;}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 38 "logicwalker.l"
+#line 39 "logicwalker.l"
 {CopyText(); return GOTO;}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 39 "logicwalker.l"
+#line 40 "logicwalker.l"
 {CopyText(); return AND;}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 40 "logicwalker.l"
+#line 41 "logicwalker.l"
 {CopyText(); return OR;}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 41 "logicwalker.l"
+#line 42 "logicwalker.l"
 {CopyText(); return NOT;}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 42 "logicwalker.l"
+#line 43 "logicwalker.l"
 {CopyText(); return AND;}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 43 "logicwalker.l"
+#line 44 "logicwalker.l"
 {CopyText(); return OR;}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 44 "logicwalker.l"
+#line 45 "logicwalker.l"
 {CopyText(); return NOT;}
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 45 "logicwalker.l"
+#line 46 "logicwalker.l"
 {CopyText(); return GT;}
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 46 "logicwalker.l"
+#line 47 "logicwalker.l"
 {CopyText(); return LT;}
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 47 "logicwalker.l"
+#line 48 "logicwalker.l"
 {CopyText(); return GE;}
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 48 "logicwalker.l"
+#line 49 "logicwalker.l"
 {CopyText(); return LE;}
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 49 "logicwalker.l"
+#line 50 "logicwalker.l"
 {CopyText(); return EQ;}
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 50 "logicwalker.l"
+#line 51 "logicwalker.l"
 {CopyText(); return NE;}
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 51 "logicwalker.l"
+#line 52 "logicwalker.l"
 {CopyText(); return ADD;}
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 52 "logicwalker.l"
+#line 53 "logicwalker.l"
 {CopyText(); return MIN;}
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 53 "logicwalker.l"
+#line 54 "logicwalker.l"
 {CopyText(); return MUL;}
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 54 "logicwalker.l"
+#line 55 "logicwalker.l"
 {CopyText(); return DIV;}
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 55 "logicwalker.l"
+#line 56 "logicwalker.l"
 {CopyText(); return MOD;}
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 56 "logicwalker.l"
+#line 57 "logicwalker.l"
 {CopyText(); return SET;}
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 57 "logicwalker.l"
+#line 58 "logicwalker.l"
 {CopyText(); return LP;}
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 58 "logicwalker.l"
+#line 59 "logicwalker.l"
 {CopyText(); return RP;}
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 59 "logicwalker.l"
+#line 60 "logicwalker.l"
 {CopyText(); return LB;}
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 60 "logicwalker.l"
+#line 61 "logicwalker.l"
 {CopyText(); return RB;}
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 61 "logicwalker.l"
+#line 62 "logicwalker.l"
 {CopyText(); return CM;}
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 62 "logicwalker.l"
+#line 63 "logicwalker.l"
 {CopyText(); return ID;}
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 63 "logicwalker.l"
+#line 64 "logicwalker.l"
 {CopyText(); return LC;}
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 64 "logicwalker.l"
+#line 65 "logicwalker.l"
 {CopyText(); return LCO;}
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 65 "logicwalker.l"
+#line 66 "logicwalker.l"
 {CopyText(); return LCF;}
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 66 "logicwalker.l"
+#line 67 "logicwalker.l"
 {CopyText(); return NUM;}
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 67 "logicwalker.l"
+#line 68 "logicwalker.l"
 {CopyText(); return HEX;}
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 68 "logicwalker.l"
+#line 69 "logicwalker.l"
 {CopyText(); return TIME;}
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 69 "logicwalker.l"
+#line 70 "logicwalker.l"
 {CopyText(); return DATE;}
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 70 "logicwalker.l"
+#line 71 "logicwalker.l"
 {CopyText(); return DATETIME;}
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 71 "logicwalker.l"
+#line 72 "logicwalker.l"
 {CopyText(); return LABEL;}
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 72 "logicwalker.l"
+#line 73 "logicwalker.l"
 {CopyText(); return IDR;}
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
-#line 73 "logicwalker.l"
+#line 74 "logicwalker.l"
 {CopyText(); return IDO;}
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
-#line 74 "logicwalker.l"
+#line 75 "logicwalker.l"
 {CopyText(); return IDF;}
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
-#line 75 "logicwalker.l"
+#line 76 "logicwalker.l"
 {CopyText(); return IDV;}
 	YY_BREAK
 case 42:
 /* rule 42 can match eol */
 YY_RULE_SETUP
-#line 76 "logicwalker.l"
+#line 77 "logicwalker.l"
 {}
 	YY_BREAK
 case 43:
 YY_RULE_SETUP
-#line 77 "logicwalker.l"
+#line 78 "logicwalker.l"
 {}
 	YY_BREAK
 case 44:
 YY_RULE_SETUP
-#line 79 "logicwalker.l"
+#line 80 "logicwalker.l"
 ECHO;
 	YY_BREAK
-#line 1108 "lexer.cpp"
+#line 1109 "lexer.cpp"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -2102,13 +2103,17 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 79 "logicwalker.l"
+#line 80 "logicwalker.l"
 
 
 
 int yywrap(void)
 {
 	return 1;
+}
+void* yystring(const char *s)
+{
+	return (void*)yy_scan_string(s);
 }
 
 #ifdef TEST_LEXER

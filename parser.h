@@ -85,7 +85,7 @@ typedef union YYSTYPE
 {
 
 /* Line 2068 of yacc.c  */
-#line 8 "logicwalker.y"
+#line 11 "logicwalker.y"
 
 	struct
 	{

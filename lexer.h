@@ -324,7 +324,7 @@ extern int yylex (void);
 #undef YY_DECL
 #endif
 
-#line 79 "logicwalker.l"
+#line 80 "logicwalker.l"
 
 
 #line 331 "lexer.h"

@@ -4,8 +4,9 @@
 #include <cstring>
 #include "parser.h"
 extern char *yytext;
-extern	"C" int yylex(void);
-extern	"C" int yywrap(void);
+extern "C" int yylex(void);
+extern "C" int yywrap(void);
+extern "C" void* yystring(const char *s);
 #define CopyText() strcpy(yylval.t, yytext)
 %}
 
@@ -81,6 +82,10 @@ LABEL		{ID}[:]
 int yywrap(void)
 {
 	return 1;
+}
+void* yystring(const char *s)
+{
+	return (void*)yy_scan_string(s);
 }
 
 #ifdef TEST_LEXER
