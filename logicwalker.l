@@ -10,11 +10,15 @@ extern	"C" int yywrap(void);
 %}
 
 LC			[a-zA-Z]
-LCO			{LC}[.]ontime
-LCF			{LC}[.]offtime
+LCO			{LC}[.]ontime(\(\))?
+LCF			{LC}[.]offtime(\(\))?
+ID			[a-zA-Z_][_a-zA-Z0-9]+
+IDRT		{ID}[.]runtime(\(\))?
+IDOT		{ID}[.]ontime(\(\))?
+IDFT		{ID}[.]offtime(\(\))?
+IDVL		{ID}[.]value(\(\))?
 NUM			[0-9]+([.][0-9]+)?
 HEX			0x[0-9a-fA-F]{1,16}
-ID			[a-zA-Z_][_a-zA-Z0-9]+
 y			[0-9]{4,4}
 m			(0[0-9])|(1[0-2])
 d			(0[1-9])|([1-2][0-9])|(3[0-1])
@@ -25,10 +29,6 @@ TIME		{H}:{M}:{S}
 DATE		{y}[.]{m}[.]{d}
 DATETIME	({DATE}[ ]{TIME})|({DATE})|({TIME})
 LABEL		{ID}[:]
-IDRT		{ID}[.]runtime
-IDOT		{ID}[.]ontime
-IDFT		{ID}[.]offtime
-IDVL		{ID}[.]value
 
 %%
 

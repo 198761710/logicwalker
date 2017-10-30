@@ -9,10 +9,15 @@ using namespace std;
 class Cache
 {
 protected:
+	string cachename;
 	map<string,Variable> variablemap;
+	typedef map<string,Variable>::iterator Iterator;
+public:
+	Cache(const string& name):cachename(name){}
 
 public:
 	void SetToken(Token& token);
+	void ShowToken(void);
 };
 
 #endif//__CACHE_H__

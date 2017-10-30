@@ -1,1 +1,4 @@
 # logicwalker
+```shell
+$ make
+```

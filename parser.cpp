@@ -451,10 +451,10 @@ static const yytype_uint8 yytranslate[] =
 static const yytype_uint8 yyprhs[] =
 {
        0,     0,     3,     6,     8,    10,    12,    14,    17,    21,
-      24,    27,    30,    32,    34,    38,    42,    45,    47,    50,
-      54,    58,    62,    66,    70,    74,    78,    82,    86,    90,
-      94,    98,   102,   106,   108,   110,   112,   114,   116,   118,
-     120,   122,   124,   126,   128,   130
+      24,    27,    30,    32,    34,    38,    42,    45,    47,    49,
+      51,    53,    55,    57,    59,    61,    63,    65,    67,    69,
+      71,    73,    77,    80,    84,    88,    92,    96,   100,   104,
+     108,   112,   116,   120,   124,   128
 };
 
 /* YYRHS -- A `-1'-separated list of the rules' RHS.  */
@@ -464,16 +464,16 @@ static const yytype_int8 yyrhs[] =
       48,    -1,    51,    -1,    45,    46,    -1,    45,    46,    47,
       -1,    16,    52,    -1,    17,    48,    -1,    18,    48,    -1,
       49,    -1,    50,    -1,     3,    38,    52,    -1,     8,    38,
-      52,    -1,    39,     3,    -1,    40,    -1,    21,    52,    -1,
+      52,    -1,    39,     3,    -1,    40,    -1,     8,    -1,     9,
+      -1,    10,    -1,     3,    -1,     4,    -1,     5,    -1,     6,
+      -1,     7,    -1,    11,    -1,    12,    -1,    13,    -1,    14,
+      -1,    15,    -1,    33,    52,    34,    -1,    21,    52,    -1,
       52,    19,    52,    -1,    52,    20,    52,    -1,    52,    22,
       52,    -1,    52,    23,    52,    -1,    52,    24,    52,    -1,
       52,    25,    52,    -1,    52,    26,    52,    -1,    52,    27,
       52,    -1,    52,    28,    52,    -1,    52,    29,    52,    -1,
       52,    30,    52,    -1,    52,    31,    52,    -1,    52,    32,
-      52,    -1,    33,    52,    34,    -1,     3,    -1,     4,    -1,
-       5,    -1,     6,    -1,     7,    -1,     8,    -1,     9,    -1,
-      10,    -1,    11,    -1,    12,    -1,    13,    -1,    14,    -1,
-      15,    -1
+      52,    -1
 };
 
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
@@ -530,10 +530,10 @@ static const yytype_uint8 yyr1[] =
 static const yytype_uint8 yyr2[] =
 {
        0,     2,     2,     1,     1,     1,     1,     2,     3,     2,
-       2,     2,     1,     1,     3,     3,     2,     1,     2,     3,
-       3,     3,     3,     3,     3,     3,     3,     3,     3,     3,
-       3,     3,     3,     1,     1,     1,     1,     1,     1,     1,
-       1,     1,     1,     1,     1,     1
+       2,     2,     1,     1,     3,     3,     2,     1,     1,     1,
+       1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+       1,     3,     2,     3,     3,     3,     3,     3,     3,     3,
+       3,     3,     3,     3,     3,     3
 };
 
 /* YYDEFACT[STATE-NAME] -- Default reduction number in state STATE-NUM.
@@ -542,13 +542,13 @@ static const yytype_uint8 yyr2[] =
 static const yytype_uint8 yydefact[] =
 {
        0,     0,     0,     0,     0,    17,     0,     3,     4,     0,
-       5,    12,    13,     6,     0,     0,    33,    34,    35,    36,
-      37,    38,    39,    40,    41,    42,    43,    44,    45,     0,
-       0,     9,    16,     1,     2,     0,     7,    14,    15,    18,
+       5,    12,    13,     6,     0,     0,    21,    22,    23,    24,
+      25,    18,    19,    20,    26,    27,    28,    29,    30,     0,
+       0,     9,    16,     1,     2,     0,     7,    14,    15,    32,
        0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
-       0,     0,     0,     0,    10,     0,     8,    32,    19,    20,
-      21,    22,    23,    24,    25,    26,    27,    28,    29,    30,
-      31,    11
+       0,     0,     0,     0,    10,     0,     8,    31,    33,    34,
+      35,    36,    37,    38,    39,    40,    41,    42,    43,    44,
+      45,    11
 };
 
 /* YYDEFGOTO[NTERM-NUM].  */
@@ -1522,7 +1522,7 @@ yyreduce:
 
 /* Line 1806 of yacc.c  */
 #line 74 "logicwalker.y"
-    {NODE(ID,string((yyvsp[(2) - (2)].t))+":"); NODE(GOTO,"goto");}
+    {NODE(LABEL,string((yyvsp[(2) - (2)].t))+":"); NODE(GOTO,"goto");}
     break;
 
   case 17:
@@ -1536,196 +1536,196 @@ yyreduce:
 
 /* Line 1806 of yacc.c  */
 #line 80 "logicwalker.y"
-    {NODE(NOT, "!");}
+    {NODE(LC, (yyvsp[(1) - (1)].t));}
     break;
 
   case 19:
 
 /* Line 1806 of yacc.c  */
 #line 82 "logicwalker.y"
-    {NODE(AND, "&&");}
+    {NODE(LCO, (yyvsp[(1) - (1)].t));}
     break;
 
   case 20:
 
 /* Line 1806 of yacc.c  */
 #line 84 "logicwalker.y"
-    {NODE(OR, "||");}
+    {NODE(LCF, (yyvsp[(1) - (1)].t));}
     break;
 
   case 21:
 
 /* Line 1806 of yacc.c  */
 #line 86 "logicwalker.y"
-    {NODE(EQ, "==");}
+    {NODE(ID, (yyvsp[(1) - (1)].t));}
     break;
 
   case 22:
 
 /* Line 1806 of yacc.c  */
 #line 88 "logicwalker.y"
-    {NODE(NE, "!=");}
+    {NODE(IDR, (yyvsp[(1) - (1)].t));}
     break;
 
   case 23:
 
 /* Line 1806 of yacc.c  */
 #line 90 "logicwalker.y"
-    {NODE(GE, ">=");}
+    {NODE(IDO, (yyvsp[(1) - (1)].t));}
     break;
 
   case 24:
 
 /* Line 1806 of yacc.c  */
 #line 92 "logicwalker.y"
-    {NODE(LE, "<=");}
+    {NODE(IDF, (yyvsp[(1) - (1)].t));}
     break;
 
   case 25:
 
 /* Line 1806 of yacc.c  */
 #line 94 "logicwalker.y"
-    {NODE(GT, ">");}
+    {NODE(IDV, (yyvsp[(1) - (1)].t));}
     break;
 
   case 26:
 
 /* Line 1806 of yacc.c  */
 #line 96 "logicwalker.y"
-    {NODE(LT, "<");}
+    {NODE(NUM, (yyvsp[(1) - (1)].t));}
     break;
 
   case 27:
 
 /* Line 1806 of yacc.c  */
 #line 98 "logicwalker.y"
-    {NODE(ADD, "+");}
+    {NODE(HEX, (yyvsp[(1) - (1)].t));}
     break;
 
   case 28:
 
 /* Line 1806 of yacc.c  */
 #line 100 "logicwalker.y"
-    {NODE(MIN, "-");}
+    {NODE(DATE, (yyvsp[(1) - (1)].t));}
     break;
 
   case 29:
 
 /* Line 1806 of yacc.c  */
 #line 102 "logicwalker.y"
-    {NODE(MUL, "*");}
+    {NODE(TIME, (yyvsp[(1) - (1)].t));}
     break;
 
   case 30:
 
 /* Line 1806 of yacc.c  */
 #line 104 "logicwalker.y"
-    {NODE(DIV, "/");}
+    {NODE(DATETIME, (yyvsp[(1) - (1)].t));}
     break;
 
   case 31:
 
 /* Line 1806 of yacc.c  */
 #line 106 "logicwalker.y"
-    {NODE(MOD, "%");}
+    {}
     break;
 
   case 32:
 
 /* Line 1806 of yacc.c  */
 #line 108 "logicwalker.y"
-    {}
+    {NODE(NOT, "!");}
     break;
 
   case 33:
 
 /* Line 1806 of yacc.c  */
 #line 110 "logicwalker.y"
-    {NODE(ID, (yyvsp[(1) - (1)].t));}
+    {NODE(AND, "&&");}
     break;
 
   case 34:
 
 /* Line 1806 of yacc.c  */
 #line 112 "logicwalker.y"
-    {NODE(IDR, (yyvsp[(1) - (1)].t));}
+    {NODE(OR, "||");}
     break;
 
   case 35:
 
 /* Line 1806 of yacc.c  */
 #line 114 "logicwalker.y"
-    {NODE(IDO, (yyvsp[(1) - (1)].t));}
+    {NODE(EQ, "==");}
     break;
 
   case 36:
 
 /* Line 1806 of yacc.c  */
 #line 116 "logicwalker.y"
-    {NODE(IDF, (yyvsp[(1) - (1)].t));}
+    {NODE(NE, "!=");}
     break;
 
   case 37:
 
 /* Line 1806 of yacc.c  */
 #line 118 "logicwalker.y"
-    {NODE(IDV, (yyvsp[(1) - (1)].t));}
+    {NODE(GE, ">=");}
     break;
 
   case 38:
 
 /* Line 1806 of yacc.c  */
 #line 120 "logicwalker.y"
-    {NODE(LC, (yyvsp[(1) - (1)].t));}
+    {NODE(LE, "<=");}
     break;
 
   case 39:
 
 /* Line 1806 of yacc.c  */
 #line 122 "logicwalker.y"
-    {NODE(LCO, (yyvsp[(1) - (1)].t));}
+    {NODE(GT, ">");}
     break;
 
   case 40:
 
 /* Line 1806 of yacc.c  */
 #line 124 "logicwalker.y"
-    {NODE(LCF, (yyvsp[(1) - (1)].t));}
+    {NODE(LT, "<");}
     break;
 
   case 41:
 
 /* Line 1806 of yacc.c  */
 #line 126 "logicwalker.y"
-    {NODE(NUM, (yyvsp[(1) - (1)].t));}
+    {NODE(ADD, "+");}
     break;
 
   case 42:
 
 /* Line 1806 of yacc.c  */
 #line 128 "logicwalker.y"
-    {NODE(HEX, (yyvsp[(1) - (1)].t));}
+    {NODE(MIN, "-");}
     break;
 
   case 43:
 
 /* Line 1806 of yacc.c  */
 #line 130 "logicwalker.y"
-    {NODE(DATE, (yyvsp[(1) - (1)].t));}
+    {NODE(MUL, "*");}
     break;
 
   case 44:
 
 /* Line 1806 of yacc.c  */
 #line 132 "logicwalker.y"
-    {NODE(TIME, (yyvsp[(1) - (1)].t));}
+    {NODE(DIV, "/");}
     break;
 
   case 45:
 
 /* Line 1806 of yacc.c  */
 #line 134 "logicwalker.y"
-    {NODE(DATETIME, (yyvsp[(1) - (1)].t));}
+    {NODE(MOD, "%");}
     break;
 
 

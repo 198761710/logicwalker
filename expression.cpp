@@ -1,5 +1,6 @@
 #include <math.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include "parser.h"
 #include "token.h"
 #include "context.h"
@@ -241,7 +242,7 @@ double Expression::Execute(void)
 		case ELSE:
 			return Execute_ELSE();
 		case AND:
-			return Execute_ADD();
+			return Execute_AND();
 		case OR:
 			return Execute_OR();
 		case NOT:
@@ -348,7 +349,7 @@ double Expression::Execute_AND(void)
 	//printf("%s ", token.name.data());
 	if( lchild && rchild )
 	{
-		return (fabs(lchild->Execute()) > 0.0001) && (fabs(rchild->Execute()) > 0.0001);
+		return (fabs(lchild->Execute()) > 0.9999) && (fabs(rchild->Execute()) > 0.9999);
 	}
 	return 0.0;
 }
@@ -357,7 +358,7 @@ double Expression::Execute_OR(void)
 	//printf("%s ", token.name.data());
 	if( lchild && rchild )
 	{
-		return (fabs(lchild->Execute()) > 0.0001) || (fabs(rchild->Execute()) > 0.0001);
+		return (fabs(lchild->Execute()) > 0.9999) || (fabs(rchild->Execute()) > 0.9999);
 	}
 	return 0.0;
 }
@@ -366,11 +367,11 @@ double Expression::Execute_NOT(void)
 	//printf("%s ", token.name.data());
 	if( lchild )
 	{
-		return !(fabs(lchild->Execute()) > 0.0001);
+		return !(fabs(lchild->Execute()) > 0.9999);
 	}
 	if( rchild )
 	{
-		return !(fabs(rchild->Execute()) > 0.0001);
+		return !(fabs(rchild->Execute()) > 0.9999);
 	}
 	return 0.0;
 }
@@ -554,23 +555,11 @@ double Expression::Execute_SET(void)
 	if( lchild && rchild )
 	{
 		lchild->token.SetValueAuto( rchild->Execute() );
-		static int i = 0;
-		if(( (++i) % 50000 == 0 )
-		|| ( (++i) % 50000 == 1 )
-		|| ( (++i) % 50000 == 2 ) )
-		{
-			printf("%s = %f\n", lchild->GetName().data(), rchild->Execute());
-		}
 	}
 	return 0.0;
 }
 double Expression::Execute_GOTO(void)
 {
-	static int i =0;
-	if( (++i % 50000) == 0)
-	{
-		printf("%d.%s\n ", i, token.name.data());
-	}
 	if( lchild && context )
 	{
 		context->GotoLabel(lchild->token.name);

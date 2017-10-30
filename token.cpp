@@ -6,7 +6,7 @@
 #include "context.h"
 #include "variable.h"
 
-extern Cache CacheVariable;
+extern Cache GlobalVariable;
 
 Token::Token(void)
 {
@@ -27,7 +27,7 @@ void Token::SetContext(Context& context)
 	switch(type)
 	{
 	case ID:
-		CacheVariable.SetToken(*this);
+		GlobalVariable.SetToken(*this);
 		break;
 	case IDR:
 	case IDO:
@@ -35,7 +35,7 @@ void Token::SetContext(Context& context)
 	case IDV:
 		name[name.find_first_of(".")] = 0;
 		name = name.data();
-		CacheVariable.SetToken(*this);
+		GlobalVariable.SetToken(*this);
 		break;
 	case LC:
 		context.GetLocalVariable().SetToken(*this);

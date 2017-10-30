@@ -6,6 +6,7 @@
 
 TokenLmap LogicWalker::tokenlmap;
 TokenList LogicWalker::tokenlist;
+extern class Cache GlobalVariable;
 
 void LogicWalker::AddToken(const Token& node)
 {
@@ -46,5 +47,15 @@ void LogicWalker::Execute(void)
 	}
 	tokenlist.clear();
 	tokenlmap.clear();
-	context.Execute();
+	while(1)
+	{
+		context.Execute();
+		static time_t old = time(0);
+		if( time(0) - old != 0 )
+		{
+			old = time(0);
+			GlobalVariable.ShowToken();
+			context.GetLocalVariable().ShowToken();
+		}
+	}
 }

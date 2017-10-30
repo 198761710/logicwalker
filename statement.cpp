@@ -1,3 +1,4 @@
+#include <math.h>
 #include "parser.h"
 #include "context.h"
 #include "expression.h"
@@ -33,13 +34,13 @@ void Statement::Execute(void)
 			statement.back().Execute();
 			break;
 		case 2:
-			if( statement.back().Execute() < 0.0001 )
+			if( fabs(statement.back().Execute()) > 0.9999 )
 			{
 				statement.front().Execute();
 			}
 			break;
 		case 3:
-			if( statement.back().Execute() > 0.0001 )
+			if( fabs(statement.back().Execute()) > 0.9999 )
 			{
 				Iterator i = statement.begin();
 				i++;i->Execute();

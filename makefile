@@ -1,9 +1,9 @@
-ARCH:=arm-linux-
-#ARCH:=/usr/bin/
+#ARCH:=arm-linux-
+ARCH:=/usr/bin/
 CC:=$(ARCH)g++
 STRIP:=$(ARCH)strip
-LEX:=/usr/bin/flex
-YACC:=/usr/bin/bison
+LEX:=flex
+YACC:=bison
 LEXIN:= logicwalker.l
 YACCIN:= logicwalker.y
 LEXOUT:= lexer.cpp
@@ -12,9 +12,10 @@ LFLAGS:= -o $(LEXOUT) --header-file=lexer.h
 YFLAGS:= -o $(YACCOUT) --defines=parser.h
 CFLAGS:=  -g
 
-all: parser
+all: parser 
 	$(STRIP) $+
 	@ls -lhcv $+
+
 test:
 	@echo "-----------------input logic script--------------------"
 	@cat example.logic

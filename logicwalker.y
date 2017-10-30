@@ -71,12 +71,40 @@ set_expression:
 	LC SET value_expression {NODE(LC, $<t>1); NODE(SET,"=");}
 	;
 goto_expression:
-	GOTO ID {NODE(ID,string($<t>2)+":"); NODE(GOTO,"goto");}
+	GOTO ID {NODE(LABEL,string($<t>2)+":"); NODE(GOTO,"goto");}
 	;
 label_expression:
 	LABEL {NODE(LABEL, $<t>1);}
 	;
 value_expression:
+	LC {NODE(LC, $<t>1);} 
+	| 
+	LCO {NODE(LCO, $<t>1);} 
+	| 
+	LCF {NODE(LCF, $<t>1);} 
+	| 
+	ID {NODE(ID, $<t>1);}
+	|
+	IDR {NODE(IDR, $<t>1);}
+	|
+	IDO {NODE(IDO, $<t>1);}
+	|
+	IDF {NODE(IDF, $<t>1);}
+	|
+	IDV {NODE(IDV, $<t>1);}
+	|
+	NUM {NODE(NUM, $<t>1);} 
+	| 
+	HEX {NODE(HEX, $<t>1);} 
+	| 
+	DATE {NODE(DATE, $<t>1);}
+	|
+	TIME {NODE(TIME, $<t>1);}
+	|
+	DATETIME {NODE(DATETIME, $<t>1);}
+	|
+	LP value_expression RP {}
+	|
 	NOT value_expression                   {NODE(NOT, "!");}
 	|
 	value_expression AND value_expression  {NODE(AND, "&&");}
@@ -104,34 +132,6 @@ value_expression:
 	value_expression DIV value_expression  {NODE(DIV, "/");}
 	|
 	value_expression MOD value_expression  {NODE(MOD, "%");}
-	|
-	LP value_expression RP {}
-	|
-	ID {NODE(ID, $<t>1);}
-	|
-	IDR {NODE(IDR, $<t>1);}
-	|
-	IDO {NODE(IDO, $<t>1);}
-	|
-	IDF {NODE(IDF, $<t>1);}
-	|
-	IDV {NODE(IDV, $<t>1);}
-	|
-	LC {NODE(LC, $<t>1);} 
-	| 
-	LCO {NODE(LCO, $<t>1);} 
-	| 
-	LCF {NODE(LCF, $<t>1);} 
-	| 
-	NUM {NODE(NUM, $<t>1);} 
-	| 
-	HEX {NODE(HEX, $<t>1);} 
-	| 
-	DATE {NODE(DATE, $<t>1);}
-	|
-	TIME {NODE(TIME, $<t>1);}
-	|
-	DATETIME {NODE(DATETIME, $<t>1);}
 	;
 %%
 

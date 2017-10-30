@@ -1,15 +1,21 @@
-begin:
-	age = 30
-	tall = 170
-	if( (age + tall) == 200 ) then goto midle else goto begin
-midle:
-	sum = age + tall
-	a = a + 1
-	Aontime = a.ontime
-	Aofftime = a.offtime
-	RoundPerSecond = a / Aontime
-	goto midle
-end:
+Begin:
+	if( tempreture >= 5 ) then goto FanStart else goto FanStop
 
-test:
-	if( temp > 25 ) then output1 = 1 else output1 = 0
+FanStart:
+	if( fan.offtime > 5 ) then fan = 1
+	goto Normal
+
+FanStop:
+	if( fan.ontime > 5 ) then fan = 0
+	goto Normal
+
+Normal:
+	a = a + 1
+	A = A + 2
+	b = a / a.ontime
+	c = 0.001 == 0.0009
+	fan_ontime = fan.ontime
+	fan_offtime = fan.offtime
+	if(fan.offtime > 4 and tempreture < 4) then tempreture = fan.offtime 
+	if( fan.ontime > 5 and tempreture < 6) then fan = 0
+End:
