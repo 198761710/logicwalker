@@ -17,7 +17,7 @@ public:
 
 public:
 	void SetToken(Token& token);
-	void ShowToken(void);
+	void Show(void);
 };
 
 #endif//__CACHE_H__

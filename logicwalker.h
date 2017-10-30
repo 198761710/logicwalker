@@ -6,6 +6,7 @@
 #include "context.h"
 using namespace std;
 
+extern class Cache GlobalVariable;
 typedef list<class Token> TokenList;
 typedef map<signed,TokenList> TokenLmap;
 
@@ -18,10 +19,10 @@ public:
 	typedef TokenLmap::iterator MapIterator;
 	typedef TokenList::iterator ListIterator;
 public:
+	static void MakeContext(Context& context);
 	static void AddToken(const Token& node);
 	static void AddList(void);
 	static void ShowList(void);
-	static void Execute(void);
 };
 #define NODE(x,y) LogicWalker::AddToken(Token(x,y))
 

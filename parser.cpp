@@ -1994,6 +1994,7 @@ void parsefile(const string& file)
 #ifdef TEST_PARSER
 int main(int argc, char **argv)
 {
+	Context context;
 	string file = "example.logic";
 
 	if( argc > 1 )
@@ -2001,7 +2002,20 @@ int main(int argc, char **argv)
 		file = argv[1];
 	}
 	parsefile(file);
-	LogicWalker::Execute();
+	LogicWalker::MakeContext(context);
+	while(1)
+	{
+		context.Execute();
+		static time_t t = time(0);
+		if( time(0) - t != 0 )
+		{
+			t = time(0);
+			GlobalVariable.Show();
+			context.GetLocalVariable().Show();
+			static int i = 0;
+			printf("\n%d", ++i);
+		}
+	}
 	return 0;
 }
 #endif//TEST_PARSER

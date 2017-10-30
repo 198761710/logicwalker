@@ -9,7 +9,7 @@ void Cache::SetToken(Token& token)
 {
 	token.SetVariable( variablemap[token.name] );
 }
-void Cache::ShowToken(void)
+void Cache::Show(void)
 {
 	printf("_______________________________________________________________\n");
 	printf("|*********************** %14s **********************|\n", cachename.data());
